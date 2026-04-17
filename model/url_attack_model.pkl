@@ -1,0 +1,19 @@
+import pandas as pd
+import pickle
+from sklearn.ensemble import RandomForestClassifier
+
+# Example dataset structure
+# url_length,dot_count,has_https,has_at,has_dash,ip_length,label
+
+data = pd.read_csv("../dataset/malicious_urls.csv")
+
+X = data.drop("label", axis=1)
+y = data["label"]
+
+model = RandomForestClassifier(n_estimators=100)
+
+model.fit(X, y)
+
+pickle.dump(model, open("url_attack_model.pkl", "wb"))
+
+print("url_attack_model.pkl created successfully")

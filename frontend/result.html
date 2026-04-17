@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Result</title>
+
+<style>
+
+body{
+
+font-family: Arial;
+
+background:#f4f6f7;
+
+padding:40px;
+
+}
+
+.container{
+
+background:white;
+
+padding:30px;
+
+border-radius:12px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+.safe{
+
+color:green;
+
+font-weight:bold;
+
+}
+
+.mal{
+
+color:red;
+
+font-weight:bold;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+}
+
+img{
+
+width:100%;
+
+margin-top:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Detection Result</h2>
+
+<p><b>URL:</b> {{url}}</p>
+
+<p><b>Status:</b>
+
+<span class="{{ 'mal' if result=='Malicious' else 'safe' }}">
+
+{{result}}
+
+</span>
+
+</p>
+
+<div class="grid">
+
+<p><b>Attack Type:</b> {{attack_type}}</p>
+
+<p><b>Risk Score:</b> {{risk_score}}%</p>
+
+<p><b>URL Length:</b> {{url_length}}</p>
+
+<p><b>IP Address:</b> {{ip}}</p>
+
+</div>
+
+<h3>Attack Information</h3>
+
+<p>{{info}}</p>
+
+<h3>Feature Graph</h3>
+
+<img src="{{graph}}">
+
+</div>
+
+</body>
+
+</html>
